@@ -74,7 +74,9 @@ Once the code is running, setup tensorboard to observe results and outputs.
 
     tensorboard --logdir=tensorboard
 
-If everything went well, the accuracy graph in the scalars tab under the test column will look like the following:
+If everything went well, the tensorboard should have content populated in it.
+Open a browser and enter the adress ``0.0.0.0:6006``, this will open up tensorboard.
+The accuracy graph in the scalars tab under the test column will look like the following:
 
 .. figure:: tutorial/figures/accuracy.png
    :alt: Accuracy of the network once fully trained.
@@ -98,6 +100,7 @@ order although you should step ahead if some of the materials are familiar. Have
    
    tutorial/intro
    tutorial/fc_layer
+   tutorial/conv_layer
    tutorial/zbibiliography
 
 .. toctree::

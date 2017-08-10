@@ -22,8 +22,6 @@ Together, the vectorized output of the layer is the dot-product operation betwee
 where, :math:`\mathbf{z} \in \mathbb{R}^{b \times n}`, :math:`\mathbf{w} \in \mathbb{R}^{d \times n}` and the :math:`(i,j)^{\text{th}}` element of 
 :math:`\mathbf{z}` represents the output of the :math:`j^{\text{th}}` neuron for the :math:`i^{\text{th}}` sample of input. 
 
-.. _fig-dot-product-layer:
-
 .. figure:: figures/dot_product.png
     :scale: 30 %
     :align: center
@@ -31,7 +29,7 @@ where, :math:`\mathbf{z} \in \mathbb{R}^{b \times n}`, :math:`\mathbf{w} \in \ma
 
     A typical dot-product layer
 
-Figure 1 shows such a connectivity of a typical dot-product layer. 
+The above figure shows such a connectivity of a typical dot-product layer. 
 This layer takes in an input of :math:`d` dimensions and produces an output of :math:`n` dimensions. 
 From the figure, it should be clear as to why dot-product layers are also referred to as fully-connected layers. 
 These weights are typically *learnt* using back-propagation and gradient descent :cite:`rumelhart1985learning`.
@@ -81,8 +79,6 @@ There are some newer elements in the tensorflow code. Tensorflow graph component
 could be enclosed using ``tf.variable_scope`` declarations. I like to think of them as *boxes* to put things in 
 literally. Once we go through tensorboard, it can be noticed that sometimes they literatlly are boxes. 
 For instance, the following is a tensorboard visualization of this scope. 
-
-.. _fig-dot-product-tensor-board:
 
 .. figure:: figures/dot_product_tensorboard.png
     :scale: 35 %
