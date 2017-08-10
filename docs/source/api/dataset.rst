@@ -4,5 +4,5 @@ Dataset
 
 This module contains all the dataset related classes. 
 
-.. automodule:: dataset
+.. automodule:: lenet.dataset
    :members:
