@@ -98,7 +98,7 @@ that is not available clearly in theano. Summaries are hooks that can write down
 presently stored in graph components that can be used later by tensorboard to read and present in a nice 
 informative manner. They can be pretty much anything of a few popular hooks that tensorflow allows.
 the ``summary.histogram`` allows us to track the histogram of particular variables as they change 
-during iterations. We will go into more detail about summaries as we study :ref:`trainer` class file, but 
+during iterations. We will go into more detail about summaries as we study the :ref:`trainer` class file, but 
 at this moment you can think of them as *hooks* that export data. 
 
 The entire layer class description can be found in the :ref:`layers` module.

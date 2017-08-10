@@ -1,4 +1,5 @@
-.. _trainer
+.. _trainer:
+
 =======
 Trainer
 =======
