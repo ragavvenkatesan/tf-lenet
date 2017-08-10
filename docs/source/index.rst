@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Lenet on TensorFlow
-===================
+A Gentle Intro to TensorFlow for Theano Users
+=============================================
  
 Welcome to the Lenet tutorial using TensorFlow. 
 From being a long time user of `Theano <https://github.com/Theano/Theano>`_, I am now migrating to `TensorFlow <https://www.tensorflow.org/>`_. 
@@ -33,7 +33,9 @@ It is a typical Lenet-5 network trained to classify MNIST dataset.
 This is a simple code that can be found in the tutorial that comes with TensorFlow and most other public service tutorials.
 I made mine a little modularized so that it could be re-purposed for other networks later.
 This documentation website that comes along with this repository might help users migrating from theano to tensorflow, just as I did while 
-implementing this repository. Whenever possible, I will make explicit comparisons to help along.
+implementing this repository. Whenever possible, I will make explicit comparisons to help along. 
+There are also small notes and material on explaining the theory and working of CNNs also so as to help those that are unfamiliar with
+CNNs and want to simply learn tensorflow.
 
 To begin with, it might be helpful to run the entire code in its default setting.
 This will enable you to ensure that the installations were proper and that your machine was setup.
