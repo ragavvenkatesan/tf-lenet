@@ -18,7 +18,7 @@ In this tutorial we will study a popular technique used in *learning to create g
 These machine learn to extract useful feature representations of images using the data for a particular task.
 
 Multi-layer neural networks have long since been viewed as a means of extracting hierarchical task-specific features. 
-Ever since the early works of Rumelhart et al.,:cite:`rumelhart1985learning` it was recognized that representations learnt using 
+Ever since the early works of Rumelhart et al., :cite:`rumelhart1985learning` it was recognized that representations learnt using 
 back-propagation had the potential to learn fine-tuned features that were task-specific. 
 Until the onset of this decade, these methods were severely handicapped by a dearth of large-scale data and large-scale parallel
 compute hardware to be leveraged sufficiently. 
