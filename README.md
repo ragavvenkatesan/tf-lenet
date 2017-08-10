@@ -12,7 +12,7 @@ Then you're in luck! I myself am just migrating from theano to tensorflow and th
 TensorFlow. This is a typical Lenet-5 network trained to classify MNIST dataset. 
 This is a simple code that is found in the tutorial that comes with TensorFlow.
 I made it a little modularized so that it could be re-purposed for other networks later.
-The documentation website that comes along with this repository helps users migrating from theano to tensorflow.
+The [documentation](http://tf-lenet.readthedocs.io) website that comes along with this repository helps users migrating from theano to tensorflow.
 
 Obviously, you'd need [tensorflow](https://www.tensorflow.org/install/) and [numpy](https://docs.scipy.org/doc/numpy/user/install.html) installed. To run the code simply run:
 
