@@ -107,6 +107,7 @@ order although you should step ahead if some of the materials are familiar. Have
    tutorial/fc_layer
    tutorial/conv_layer
    tutorial/pooling_layer
+   tutorial/softmax_layer
    tutorial/zbibiliography
 
 .. toctree::

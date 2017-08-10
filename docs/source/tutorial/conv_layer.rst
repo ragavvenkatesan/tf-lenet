@@ -13,7 +13,7 @@ A convolution layer also has a small receptive field.
 This idea of having a small receptive field is also often referred to as *local-connectivity*.
 
 .. figure:: figures/1d_conv.png
-    :scale: 30 %
+    :scale: 40 %
     :align: center
     :alt: Locally-connected neurons with a receptive field of :math:`r=3`.
 
@@ -36,8 +36,8 @@ This figure does not show independent neurons and their connectivities but inste
 In cases where the input has more than one channel, convolution happens along all channels independently and the outputs are summed location-wise.
 
 .. figure:: figures/conv_layer.png
-    :scale: 30 %
     :align: center
+    :scale: 15%
     :alt: A typical convolution layer.
 
     A typical convolution layer.
@@ -98,7 +98,6 @@ are used to from pylearn2. The original code is hosted on their `gist <https://g
 My modified version is in :ref:`third_party`.
 
 .. figure:: figures/conv_tensorboard.png
-    :scale: 35 %
     :align: center
     :alt: A convolution layer scope visualized in tensorboard. The filters that it learnt are also shown.
 

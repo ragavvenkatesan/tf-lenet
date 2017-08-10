@@ -11,6 +11,7 @@ The :math:`j`:sup:`th` neuron in this layer will simply perform the following op
 
 where,  :math:`\alpha` is typically an element-wise monotonically-increasing function that scales the output of the dot-product.
 :math:`\alpha` is commonly referred to as the activation function. 
+The activation function is used typically as a threshold, that either turns ON (or has a level going out) or OFF, the neuron.
 The neuron output that has been processed by an activation layer is also referred to as an *activity*.
 Inputs can be processed in batches or mini-batches through the layer. 
 In these cases :math:`\mathbf{x}` is a matrix in :math:`\mathbb{R}^{b \times d}`, where :math:`b` is the batch size. 
@@ -23,7 +24,7 @@ where, :math:`\mathbf{z} \in \mathbb{R}^{b \times n}`, :math:`\mathbf{w} \in \ma
 :math:`\mathbf{z}` represents the output of the :math:`j^{\text{th}}` neuron for the :math:`i^{\text{th}}` sample of input. 
 
 .. figure:: figures/dot_product.png
-    :scale: 30 %
+    :scale: 40 %
     :align: center
     :alt: A typical dot-product layer
 
@@ -81,8 +82,8 @@ literally. Once we go through tensorboard, it can be noticed that sometimes they
 For instance, the following is a tensorboard visualization of this scope. 
 
 .. figure:: figures/dot_product_tensorboard.png
-    :scale: 35 %
     :align: center
+    :scale: 50 %
     :alt: A dot-product layer scope visualized in tensorboard
 
     A dot-product layer scope visualized in tensorboard
