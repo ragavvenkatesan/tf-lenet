@@ -92,7 +92,7 @@ It can be implemented as follows:
     visualize_filters(weights, name = 'filters_' + name)
 
 While most of the code is easily understandable and migrated analogously from theano, the visualization needs 
-to be adapted for tensorboard. The visualize_filters (found in :ref:`support`) is a wrapper to a nice function 
+to be adapted for tensorboard. The ``visualize_filters`` method (found in :ref:`support`) is a wrapper to a nice function 
 written by `kukurza <https://github.com/kukuruza>`_ . The code rasterizes the filters similar to what we 
 are used to from pylearn2. The original code is hosted on their `gist <https://gist.github.com/kukuruza/03731dc494603ceab0c5>`_ .
 My modified version is in :ref:`third_party`.
