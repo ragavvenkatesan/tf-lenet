@@ -1,7 +1,7 @@
 Pooling Layers
 ==============
 
-The convolution layer creates activations that are :math:`d-r+1:math:` long on each axis. 
+The convolution layer creates activations that are :math:`d-r+1` long on each axis. 
 Adjacent activities in each of these feature maps are often related to each other.
 This is because, in imaging contexts, most patterns spread across a few pixels. 
 We want to avoid storing (and processing) these redundancies and preferably only use the most prominent of these features.
@@ -9,7 +9,7 @@ We want to avoid storing (and processing) these redundancies and preferably only
 This is typically accomplished by using a pooling or a sub-sampling operation.
 Pooling is done typically using non-overlapping sliding windows, where each window will sample one activation.
 In the context of images, pooling by maximum (max-pooling) is typically preferred. 
-Pooling by :math:`p` (widow size of :math:`p`) reduces the sizes of activations by :math:`p-`fold.
+Pooling by :math:`p` (widow size of :math:`p`) reduces the sizes of activations by :math:`p` fold.
 A pooling layer has no learnable components.
 
 
