@@ -24,12 +24,10 @@ setup(
     ],
     keywords='convolutional neural networks deep learning theano tensorflow',
     packages=find_packages(exclude=[]),
-    install_requires=[#'tensorflow',
-                        'numpy'],
+    install_requires=['tensorflow','numpy'],
     extras_require={
         'dev': ['sphinx', 'sphinx_rtd_theme', 'sphinxcontrib-bibtex'],
     },
-    setup_requires=[#'tensorflow',
-                        'numpy'],
+    setup_requires=['tensorflow','numpy'],
     tests_require=['sphinx', 'sphinx_rtd_theme', 'sphinxcontrib-bibtex'],    
 )
