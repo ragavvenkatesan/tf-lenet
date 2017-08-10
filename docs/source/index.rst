@@ -8,7 +8,7 @@ A Gentle Intro to TensorFlow for Theano Users
  
 Welcome to the Lenet tutorial using TensorFlow. 
 From being a long time user of `Theano <https://github.com/Theano/Theano>`_, I am now migrating to `TensorFlow <https://www.tensorflow.org/>`_. 
-This repository containing an implementation Lenet, the hello world of deep CNNs is my first implementation in TensorFlow.
+This repository containing an implementation Lenet, the hello world of deep CNNs is my first exploratory experimentation with TensorFlow.
 It is a typical Lenet-5 network trained to classify MNIST dataset. 
 
 .. image:: https://requires.io/github/ragavvenkatesan/tf-lenet/requirements.svg?branch=master
@@ -30,12 +30,15 @@ It is a typical Lenet-5 network trained to classify MNIST dataset.
 .. image:: https://badges.frapsoft.com/os/v1/open-source.svg?v=103
     :alt: Support Open Source
 
-This is a simple code that can be found in the tutorial that comes with TensorFlow and most other public service tutorials.
-I made mine a little modularized so that it could be re-purposed for other networks later.
+This is a simple implementation similar to that, which can be found in the tutorial that comes with TensorFlow and most other public service tutorials.
+This is however modularized so that it could be re-purposed for other networks later.
 This documentation website that comes along with this repository might help users migrating from theano to tensorflow, just as I did while 
-implementing this repository. Whenever possible, I will make explicit comparisons to help along. 
-There are also small notes and material on explaining the theory and working of CNNs also so as to help those that are unfamiliar with
-CNNs and want to simply learn tensorflow.
+implementing this repository. In this regard, whenever possible, I make explicit comparisons to help along. 
+
+While this is most useful for theano to tensorflow migrants, this will also be useful for those who are new to CNNs.
+There are small notes and materials explaining the theory and math behind the working of CNNs.
+While these are in no way comprehensive, these might help those that are unfamiliar with
+CNNs and want to simply learn tensorflow and would rather not spend time on a semester long course.
 
 To begin with, it might be helpful to run the entire code in its default setting.
 This will enable you to ensure that the installations were proper and that your machine was setup.

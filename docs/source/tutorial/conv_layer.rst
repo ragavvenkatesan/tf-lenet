@@ -104,4 +104,26 @@ My modified version is in :ref:`third_party`.
 
     A convolution layer scope visualized in tensorboard. The filters that it learnt are also shown.
 
+Some arguments to ``tf.nn.conv2d`` are different from theano's ``conv2d`` structure. 
+For instance, the arguments supplied here are:
+
+.. code-block:: python 
+
+    filter_size = (5,5), 
+    stride = (1,1,1,1), 
+    padding = 'VALID',
+
+Also the filter and image shapes is a little different as well. 
+Images are 4D tensors in NHWC format.
+NHWC stands for number of images, height, width and channels, which for theano users is the ``b01c``.
+This format difference is what that put me off while trying to implement this myself and is a useful reminders for migrants 
+to keep in the back of their minds. 
+The filters created in the ``initializer`` method take ``f_shp`` shape where,
+
+.. code-block:: python
+
+    f_shp = [filter_size[0], filter_size[1], input.shape[3].value, neurons]
+
+That is, filter height, filter width, input channels, number of kernels. 
+This is also a little strange for theano users and might take some getting used to. 
 The entire layer class description can be found in the :ref:`layers` module.

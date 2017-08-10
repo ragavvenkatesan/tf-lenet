@@ -1,7 +1,7 @@
 Introduction 
 ============
 
-The features that are classic to computer vision were designed by hand. 
+The features that were classic to computer vision were designed by hand. 
 Some, like PCA were designed with a particular objective, such as creating representations on basis where the variance was large. 
 These features were, for the most part, general enough that they were used for a variety of tasks. 
 Features like HOG :cite:`dalal2005histograms` and SIFT :cite:`lowe1999object` for instance, have been used for tasks including video activity recognition 
