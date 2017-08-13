@@ -32,7 +32,7 @@ A maxpooling layer for 4D tensors can be implemented as follows:
 
 
 The only difference is between theano and tensorflow syntactically is that the arguments are different
-from ``theano.pool2d``. The arguments for pooling size (``ksize``) and ``strides`` are 4 dimensions 
+from :meth:`theano.pool2d`. The arguments for pooling size (``ksize``) and ``strides`` are 4 dimensions 
 as well. 
 The shapes of inputs remain consistent with the ``conv2d`` module as discussed before.
 The entire layer class description can be found in the :meth:`lenet.layers.max_pool_2d_layer` method.

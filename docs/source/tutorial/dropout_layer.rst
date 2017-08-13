@@ -60,7 +60,7 @@ We create another *parallel copy of the network* which uses the already initiali
 Assuming ofcourse that the layers are defined as classes.
 
 In tensorflow, we will make use a *placeholder* node in the graph to implement this system (which also could be done using theano). 
-A placeholder is a node in tensorflow simliar to ``theano.tensor`` or ``theano.scalar``. 
+A placeholder is a node in tensorflow simliar to :meth:`theano.tensor` or :meth:`theano.scalar`. 
 Let us create the dropout probability as a placeholder node.
 
 .. code-block:: python

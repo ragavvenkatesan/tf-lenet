@@ -60,6 +60,8 @@ Once learnt, these filters typically work as pattern detectors.
 Each filter produces one feature map.
 The feature map is a spatial map of confidence values for the existence of the pattern, the filter has adapted to detect.
 
+.. _conv_implementation:
+
 Implementation
 --------------
 
@@ -103,7 +105,7 @@ My modified version is in :meth:`lenet.third_party.put_kernels_on_grid`.
 
     A convolution layer scope visualized in tensorboard. The filters that it learnt are also shown.
 
-Some arguments to ``tf.nn.conv2d`` are different from theano's ``conv2d`` structure. 
+Some arguments to :meth:`tf.nn.conv2d`` are different from theano's ``conv2d`` structure. 
 For instance, the arguments supplied here are:
 
 .. code-block:: python 

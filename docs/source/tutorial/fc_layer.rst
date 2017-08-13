@@ -38,7 +38,7 @@ These weights are typically *learnt* using back-propagation and gradient descent
 Implementation
 --------------
 
-Dot-product layers are implemented in tensorflow by using the ``tf.matmul`` operation, which is a 
+Dot-product layers are implemented in tensorflow by using the :meth:`tf.matmul` operation, which is a 
 dot product operation. Consider the following piece of code:
 
 .. code-block:: python
@@ -72,12 +72,12 @@ in `yann <http://www.yann.network>`_ I implemented a dot product layer like so:
     dot = T.dot(input, w) + b
     activity = theano.nnet.relu(dot)
 
-We can already see that the ``theano.shared`` equivalent in tensorflow is the ``tf.Variable``. They 
-work in simliar fashion as well. ``tf.Variable`` is a node in a computational graph, just like ``theano.shared``
+We can already see that the :meth:`theano.shared` equivalent in tensorflow is the :meth:`tf.Variable`. They 
+work in simliar fashion as well. :meth:`tf.Variable` is a node in a computational graph, just like :meth:`theano.shared`
 variable. Operationally, the rest is easy to infer from the code itself. 
 
 There are some newer elements in the tensorflow code. Tensorflow graph components (variables and ops)
-could be enclosed using ``tf.variable_scope`` declarations. I like to think of them as *boxes* to put things in 
+could be enclosed using :meth:`tf.variable_scope` declarations. I like to think of them as *boxes* to put things in 
 literally. Once we go through tensorboard, it can be noticed that sometimes they literatlly are boxes. 
 For instance, the following is a tensorboard visualization of this scope. 
 

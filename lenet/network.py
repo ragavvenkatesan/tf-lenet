@@ -14,7 +14,7 @@ class lenet5(object):
             two convolutional layers with filters sizes ``5X5`` and ``3X3``. These
             are followed by two fully-connected layers and a softmax layer. This 
             network model, reproduces this network to be trained on MNIST images
-            of size ``28X28.     
+            of size ``28X28``.     
         *   Most of the important parameters are stored in :mod:`global_definitions` 
             in the file ``global_definitions.py``.
 
