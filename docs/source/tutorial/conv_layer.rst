@@ -13,7 +13,7 @@ A convolution layer also has a small receptive field.
 This idea of having a small receptive field is also often referred to as *local-connectivity*.
 
 .. figure:: figures/1d_conv.png
-    :scale: 40 %
+    :scale: 80 %
     :align: center
     :alt: Locally-connected neurons with a receptive field of :math:`r=3`.
 
@@ -37,7 +37,7 @@ In cases where the input has more than one channel, convolution happens along al
 
 .. figure:: figures/conv_layer.png
     :align: center
-    :scale: 15%
+    :scale: 50%
     :alt: A typical convolution layer.
 
     A typical convolution layer.

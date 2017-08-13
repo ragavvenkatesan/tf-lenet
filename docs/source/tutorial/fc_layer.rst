@@ -24,8 +24,8 @@ where, :math:`\mathbf{z} \in \mathbb{R}^{b \times n}`, :math:`\mathbf{w} \in \ma
 :math:`\mathbf{z}` represents the output of the :math:`j^{\text{th}}` neuron for the :math:`i^{\text{th}}` sample of input. 
 
 .. figure:: figures/dot_product.png
-    :scale: 40 %
     :align: center
+    :scale: 80 %    
     :alt: A typical dot-product layer
 
     A typical dot-product layer

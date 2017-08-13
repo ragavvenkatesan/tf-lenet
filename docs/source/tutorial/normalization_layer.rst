@@ -1,0 +1,11 @@
+Normalization Layer
+===================
+
+Implementing normalization was much simpler than using theano. All I had to do was 
+
+.. code-block:: python
+
+    output = tf.nn.lrn(input)
+
+``tf.nn.lrn`` is an implementation of the local response normalization :cite:`lyu2008nonlinear`. 
+This layer definition could also be found in the :ref:`layers` module.

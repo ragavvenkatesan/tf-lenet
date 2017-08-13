@@ -34,6 +34,8 @@ This is a simple implementation similar to that, which can be found in the tutor
 This is however modularized so that it could be re-purposed for other networks later.
 This documentation website that comes along with this repository might help users migrating from theano to tensorflow, just as I did while 
 implementing this repository. In this regard, whenever possible, I make explicit comparisons to help along. 
+Tensorflow has many ``contrib`` packages that are a level of abstraction higher than theano. 
+I have avoided using those whenever possible and stuck with the core tensorflow for this tutorial.
 
 While this is most useful for theano to tensorflow migrants, this will also be useful for those who are new to CNNs.
 There are small notes and materials explaining the theory and math behind the working of CNNs.
@@ -108,6 +110,11 @@ order although you should step ahead if some of the materials are familiar. Have
    tutorial/conv_layer
    tutorial/pooling_layer
    tutorial/softmax_layer
+   tutorial/reshape_layer
+   tutorial/architecture
+   tutorial/normalization_layer
+   tutorial/dropout_layer
+   tutorial/network
    tutorial/zbibiliography
 
 .. toctree::
