@@ -67,7 +67,7 @@ Let us also fix this by using gloabl definitions (refer to them all in ``lenet.g
     OPTIMIZER = 'adam' # Optimizer (options include 'adam', 'rmsprop') Easy to upgrade if needed.
 
 
-With all this initialized, we can now create a network class (:meth:`lenet.network.lenet`), whose constructor will 
+With all this initialized, we can now create a network class (:class:`lenet.network.lenet5`), whose constructor will 
 take this image placeholder.
 
 .. code-block:: python
@@ -80,9 +80,9 @@ take this image placeholder.
         """
         self.images = images
 
-As can be seen in the documentation of :meth:`lenet.network.lenet`, I have a habit of assiging some variables with ``self`` so that 
+As can be seen in the documentation of :class:`lenet.network.lenet5`, I have a habit of assiging some variables with ``self`` so that 
 I can have access to them via the objects. 
-This will be made clear when we study further :meth:`lenet.trainer.trainer` module and others.
+This will be made clear when we study further :class:`lenet.trainer.trainer` module and others.
 For now, let us proceed with the rest of the network architecure.
 
 The first thing we need is to *unflatten* the images placeholder into square images.
@@ -149,4 +149,4 @@ obstinate layers as is typically used in metoring networks purposes :cite:`venka
    Network visualized in tensorboard.
 
 Putting all this together, the network will look like the image above in tesorboard.
-The complete definition of this network class could be found in :meth:`lenet.network.lenet`.
+The complete definition of this network class could be found in :class:`lenet.network.lenet5`.
