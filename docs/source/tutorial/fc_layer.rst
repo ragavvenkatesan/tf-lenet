@@ -89,13 +89,13 @@ For instance, the following is a tensorboard visualization of this scope.
     A dot-product layer scope visualized in tensorboard
 
 The initialization is also nearly the same. 
-The API for the Xavier initializer can be found in the :ref:`support` module.
+The API for the Xavier initializer can be found in the :meth:`lenet.support.initializer` module.
 Tensorflow `summaries <https://www.tensorflow.org/api_guides/python/summary>`_ is an entirely new option 
 that is not available clearly in theano. Summaries are hooks that can write down or export information
 presently stored in graph components that can be used later by tensorboard to read and present in a nice 
 informative manner. They can be pretty much anything of a few popular hooks that tensorflow allows.
 the ``summary.histogram`` allows us to track the histogram of particular variables as they change 
-during iterations. We will go into more detail about summaries as we study the :ref:`trainer` class file, but 
+during iterations. We will go into more detail about summaries as we study the :meth:`lenet.trainer.trainer.summaries` method, but 
 at this moment you can think of them as *hooks* that export data. 
 
-The entire layer class description can be found in the :ref:`layers` module.
+The entire layer class description can be found in the :meth:`lenet.dot_product_layer.` method.

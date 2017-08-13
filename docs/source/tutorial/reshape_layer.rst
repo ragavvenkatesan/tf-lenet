@@ -27,4 +27,4 @@ Similarly, we can also implement an unflatten layer:
     dim = int( np.sqrt( input.shape[1].value / channels ) ) 
     output = tf.reshape(input, [-1, dim, dim, channels])    
 
-These are also found in the :ref:`layers` module.
+These are also found in the :ref:`layers` module in :meth:`lenet.layers.flatten_layer` and :meth:`lenet.layers.unflatten_layer`.

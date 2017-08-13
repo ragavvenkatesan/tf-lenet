@@ -58,8 +58,8 @@ Implementation
 
 I implemented the softmax layer as follows:
 
-    * Use a ``lenet.layers.dot_product_layer`` with 10 neurons and ``identity`` activation.
-    * Use a ``lenet.layers.softmax_layer`` to produce the softmax.
+    * Use a :meth:`lenet.layers.dot_product_layer` with 10 neurons and ``identity`` activation.
+    * Use a :meth:`lenet.layers.softmax_layer` to produce the softmax.
 
 In the softmax layer, we can return computational graph nodes to predictions, logits and softmax.
 The reason for using logits will become clear in the next section when we discuss errors and 
@@ -74,7 +74,7 @@ visualization:
     Softmax Layer implementation. 
     
     
-The logits layer is a ``lenet.layers.dot_product_layer`` with identity activation (no activation). 
+The logits layer is a :meth:`lenet.layers.dot_product_layer` with identity activation (no activation). 
 The ``inference`` node will produce the softmax and the ``prediction`` node will produce the label predicted. 
 Th softmax layer is implemented as:
 
@@ -84,7 +84,8 @@ Th softmax layer is implemented as:
     predictions = tf.argmax(inference, 1, name = 'predictions')
 
 Where ``tf.nn.softmax`` and ``tf.nn.argmax`` have similar syntax as the theano counterparts. 
-To have the entire layer, in the ``lenet.network.lenet`` which is where these layer methods are called, I use the following strategy:
+To have the entire layer, in the :meth:`lenet.network.lenet.__init__` which is where these layer methods are called, 
+I use the following strategy:
 
 .. code-block:: python
 
@@ -100,4 +101,4 @@ To have the entire layer, in the ``lenet.network.lenet`` which is where these la
                                             name = 'softmax_layer' ) 
 
 Where ``C`` is a globally defined variable with ``C=10`` defined in ``lenet.gloabl_definitions`` file.
-The layer definitions can be seen in full in the documentation of the :ref:`layers` module. 
+The layer definitions can be seen in full in the documentation of the :meth:`lenet.layers.softmax_layer` method. 

@@ -28,9 +28,6 @@ We now have access to datasets that are large enough and GPUs that are capable o
 This has allowed an explosion in neural image features and their usage. 
 In the next sections we will study some of these techniques.
 
-Neural Networks 
----------------
- 
 An artificial neural network is a network of computational neurons that are connected in a directed acyclic graph. 
 There are several types of neural networks. 
 While dealing with images, we are mostly concerned with the use the convolutional neural network (CNN).

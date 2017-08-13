@@ -1,11 +1,11 @@
 .. api:
 
-==========
-Simple API 
-==========
+==================
+Code Documentation 
+==================
 
-This is an API detailing every method and class in this project. You can refer to 
-all the tools using this API. 
+This is an API detailing every method and class in this project. 
+You can refer to all the tools using this API. 
 
 .. toctree::
    :maxdepth: 3

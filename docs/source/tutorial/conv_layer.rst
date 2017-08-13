@@ -92,10 +92,10 @@ It can be implemented as follows:
     visualize_filters(weights, name = 'filters_' + name)
 
 While most of the code is easily understandable and migrated analogously from theano, the visualization needs 
-to be adapted for tensorboard. The ``visualize_filters`` method (found in :ref:`support`) is a wrapper to a nice function 
+to be adapted for tensorboard. The :meth:`lenet.support.visualize_filters` method is a wrapper to a nice function 
 written by `kukurza <https://github.com/kukuruza>`_ . The code rasterizes the filters similar to what we 
 are used to from pylearn2. The original code is hosted on their `gist <https://gist.github.com/kukuruza/03731dc494603ceab0c5>`_ .
-My modified version is in :ref:`third_party`.
+My modified version is in :meth:`lenet.third_party.put_kernels_on_grid`.
 
 .. figure:: figures/conv_tensorboard.png
     :align: center
@@ -117,7 +117,7 @@ Images are 4D tensors in NHWC format.
 NHWC stands for number of images, height, width and channels, which for theano users is the ``b01c``.
 This format difference is what that put me off while trying to implement this myself and is a useful reminders for migrants 
 to keep in the back of their minds. 
-The filters created in the ``initializer`` method take ``f_shp`` shape where,
+The filters created in the :meth:`lenet.support.initializer` method take ``f_shp`` shape where,
 
 .. code-block:: python
 
@@ -125,4 +125,4 @@ The filters created in the ``initializer`` method take ``f_shp`` shape where,
 
 That is, filter height, filter width, input channels, number of kernels. 
 This is also a little strange for theano users and might take some getting used to. 
-The entire layer class description can be found in the :ref:`layers` module.
+The entire layer class description can be found in the :meth:`lenet.layers.conv_2d_layer` method.

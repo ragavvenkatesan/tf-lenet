@@ -92,35 +92,11 @@ This implies that the network trained fully and has achieved about 99% accuracy 
 From the next section onwards, I will go in detail, how I built this network. 
 
 
-
-.. _tutorial: 
-
-Tutorial
---------
-
-The following is setup into various articles, each being its own guide. I recommend going through them in 
-order although you should step ahead if some of the materials are familiar. Have fun! 
-
-.. toctree::
-   :maxdepth: 1
-   :name: get_start   
-   
-   tutorial/intro
-   tutorial/fc_layer
-   tutorial/conv_layer
-   tutorial/pooling_layer
-   tutorial/softmax_layer
-   tutorial/reshape_layer
-   tutorial/architecture
-   tutorial/normalization_layer
-   tutorial/dropout_layer
-   tutorial/network
-   tutorial/zbibiliography
-
 .. toctree::
    :maxdepth: 3
    :name: hidden  
    :hidden:   
 
+   tutorial/index
    api/index
    license

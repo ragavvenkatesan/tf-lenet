@@ -8,4 +8,4 @@ Implementing normalization was much simpler than using theano. All I had to do w
     output = tf.nn.lrn(input)
 
 ``tf.nn.lrn`` is an implementation of the local response normalization :cite:`lyu2008nonlinear`. 
-This layer definition could also be found in the :ref:`layers` module.
+This layer definition could also be found in the :meth:`lenet.layers.local_response_normalization_layer` method.

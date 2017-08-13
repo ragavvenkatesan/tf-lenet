@@ -91,4 +91,4 @@ The tensorboard will look like the following when we use these ideas to create d
     even before the first dot-product layer. This idea was taken from the denoising autoencoder paper :cite:`vincent2008extracting`.
 
 
-The layer definition can be seen in the :ref:`layers` module.
+The layer definition can be seen in the :meth:`lenet.layers.dropout_layer` module.
