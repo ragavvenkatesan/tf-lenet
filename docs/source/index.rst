@@ -42,6 +42,10 @@ There are small notes and materials explaining the theory and math behind the wo
 While these are in no way comprehensive, these might help those that are unfamiliar with
 CNNs and want to simply learn tensorflow and would rather not spend time on a semester long course.
 
+.. note:: 
+
+    The theoretical material in this tutorial are adapted from a forthcoming book chapter on *Feature Learning for Images*
+
 To begin with, it might be helpful to run the entire code in its default setting.
 This will enable you to ensure that the installations were proper and that your machine was setup.
 
