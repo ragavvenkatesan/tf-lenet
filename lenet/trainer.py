@@ -9,13 +9,14 @@ class trainer(object):
         network: A network class object
         dataset: A tensorflow dataset object
 
-    Attributes:
-        These are variables of the class that are available outside. 
-        
-        *   ``network``: This is the network we initialized with.
-        *   ``dataset``: This is also the initializer.     
-        *   ``session``: This is a session created with trainer.
-        *   ``tensorboard``: Is a summary writer tool. 
+    Attributes:        
+        network: This is the network we initialized with. We pass this as an argument and we add it 
+                to the current trainer class.
+        dataset: This is also the initializer. It comes from the :class:`lenet.dataset.mnist` module.
+        session: This is a session created with trainer. This session is used for training.
+        tensorboard: Is a summary writer tool. This writes things into the tensorboard that is 
+                    then setup on the tensorboard server. At the end of the trainer, it closes 
+                    this tensorboard.
         
     """
     def __init__ (self, network, dataset):

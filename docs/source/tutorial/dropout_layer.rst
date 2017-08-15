@@ -84,7 +84,7 @@ The tensorboard will look like the following when we use these ideas to create d
 
 
 .. figure:: figures/dropout_layer.png 
-    :scale: 50 %
+    :scale: 40 %
     :align: center
     
     Dropout visualized in tensorflow. One placeholder controls three dropout layers. Note: we also dropout the *input* signal 

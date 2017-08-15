@@ -195,7 +195,7 @@ through to the softmax layer that will provide us with a node for ``self.inferen
 ``self.predictions``. 
 
 .. figure:: figures/network.png
-   :scale: 60 %
+   :scale: 90 %
    :align: center
 
    Network visualized in tensorboard.

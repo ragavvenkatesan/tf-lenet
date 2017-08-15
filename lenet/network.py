@@ -141,19 +141,18 @@ class lenet5(object):
     Args:
         images: Placeholder for images
 
-    Attributes:
-        These are variables of the class that are available outside. 
-        
-        *   ``images``: This is the placeholder for images. This needs to be fed in.
-        *   ``dropout_prob``: This is also a placeholder for dropout probability. This needs to be fed in.    
-        *   ``logits``: Output node of the softmax layer, before softmax
-        *   ``inference``: Output node of the softmax layer.
-        *   ``predictions``: argmax of the softmax layer. 
-        *   ``back_prop``: Backprop is an optimizer. 
-        *   ``obj``: Is a cumulative objective tensor.
-        *   ``cost``: Cost of the back prop error alone.
-        *   ``labels``: Placeholder for labels, needs to be fed in.
-        *   ``accuracy``: Tensor for accuracy. 
+    Attributes:        
+        images: This is the placeholder for images. This needs to be fed in from :class:`lenet.dataset.mnist``.
+        dropout_prob: This is also a placeholder for dropout probability. This needs to be fed in.    
+        logits: Output node of the softmax layer, before softmax. This is an output from a 
+                :meth:`lenet.layers.dot_product_layer`.
+        inference: Output node of the softmax layer that produces inference.
+        predictions: Its a predictions node which is :meth:`tf.nn.argmax` of ``inference``. 
+        back_prop: Backprop is an optimizer. This is a node that will be used by a :class:`lenet.trainer.trainer` later.
+        obj: Is a cumulative objective tensor. This produces the total summer objective in a node.
+        cost: Cost of the back prop error alone. 
+        labels: Placeholder for labels, needs to be fed in. This is added fed in from the dataset class.
+        accuracy: Tensor for accuracy. This is a node that measures the accuracy for the mini batch.
 
     """
     def __init__ (  self,
