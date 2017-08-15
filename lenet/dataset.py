@@ -9,8 +9,8 @@ class mnist(object):
         dir: Directory to cache at
 
     Attributes:        
-        images: This is the placeholder for images. This needs to be fed in using ``fed_dict``.
-        labels: This is the placeholder for images. This needs to be fed in using ``fed_dict``.     
+        images: This is the placeholder for images. This needs to be fed in using ``feed_dict``.
+        labels: This is the placeholder for images. This needs to be fed in using ``feed_dict``.     
         feed: This is a feeder from mnist tutorials of tensorflow. Use this for feeding in data.      
     """
     def __init__ (self, dir = 'data'):
