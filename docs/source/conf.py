@@ -39,7 +39,8 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.imgmath',
     'sphinxcontrib.bibtex',      
-    'sphinx.ext.linkcode',      
+    'sphinx.ext.linkcode',  
+    'sphinx.ext.viewcode',    
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
 ]

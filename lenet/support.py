@@ -72,8 +72,7 @@ def visualize_images (images, name = 'images', num_images = 6):
         
         Perhaps a code like this:
 
-        ..code-block:: python
-            
+        ```            
             images = images [0:num_images-1]
             images = nhwc2hwcn(images, name = 'nhwc2hwcn' + name)
             visualize_filters(images, name)        
