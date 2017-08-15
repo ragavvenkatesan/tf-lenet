@@ -141,7 +141,7 @@ class lenet5(object):
     Args:
         images: Placeholder for images
 
-    Class Properties:
+    Attributes:
         These are variables of the class that are available outside. 
         
         *   ``images``: This is the placeholder for images. This needs to be fed in.

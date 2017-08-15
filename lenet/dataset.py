@@ -8,7 +8,7 @@ class mnist(object):
     Args: 
         dir: Directory to cache at
 
-    Class Properties:
+    Attributes:
     
         These are variables of the class that are available outside. 
         

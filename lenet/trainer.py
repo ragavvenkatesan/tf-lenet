@@ -9,7 +9,7 @@ class trainer(object):
         network: A network class object
         dataset: A tensorflow dataset object
 
-    Class Properties:
+    Attributes:
         These are variables of the class that are available outside. 
         
         *   ``network``: This is the network we initialized with.
