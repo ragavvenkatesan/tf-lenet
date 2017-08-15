@@ -29,4 +29,5 @@ Have fun!
    normalization_layer
    dropout_layer
    network
+   trainer
    zbibiliography
