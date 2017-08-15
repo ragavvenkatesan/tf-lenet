@@ -8,7 +8,3 @@ if __name__ == '__main__':
     net.cook(labels = dataset.labels)
     bp = trainer (net, dataset.feed)
     bp.train()
-    bp.train(   iter= 10000, 
-                mini_batch_size = 500, 
-                update_after_iter = 100,
-                summarize = True   )
