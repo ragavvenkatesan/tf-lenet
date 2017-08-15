@@ -84,7 +84,7 @@ Th softmax layer is implemented as:
     predictions = tf.argmax(inference, 1, name = 'predictions')
 
 Where :meth:`tf.nn.softmax` and :meth:`tf.nn.argmax` have similar syntax as the theano counterparts. 
-To have the entire layer, in the :meth:`lenet.network.lenet.__init__` which is where these layer methods are called, 
+To have the entire layer, in the :class:`lenet.network.lenet5` which is where these layer methods are called, 
 I use the following strategy:
 
 .. code-block:: python

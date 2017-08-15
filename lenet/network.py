@@ -257,7 +257,9 @@ class lenet5(object):
 
             apply_regularizer (var_list = tf.get_collection( 'regularizer_worthy_params') )
             self.obj = tf.add_n(tf.get_collection('objectives'), name='objective')
-    
+            tf.summary.scalar('obj', self.obj)  
+
+
         with tf.variable_scope('train') as scope:
             # Change (supply as arguments) parameters here directly in the code.
             if OPTIMIZER == 'sgd':                                                                              

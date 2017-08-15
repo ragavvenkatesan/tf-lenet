@@ -98,4 +98,4 @@ the ``summary.histogram`` allows us to track the histogram of particular variabl
 during iterations. We will go into more detail about summaries as we study the :meth:`lenet.trainer.trainer.summaries` method, but 
 at this moment you can think of them as *hooks* that export data. 
 
-The entire layer class description can be found in the :meth:`lenet.dot_product_layer.` method.
+The entire layer class description can be found in the :meth:`lenet.layers.dot_product_layer` method.
