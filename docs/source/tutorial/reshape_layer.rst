@@ -6,7 +6,7 @@ We want :math:`\mathbf{x} \in \mathbb{R}^{\sqrt{d} \times \sqrt{d}}` for the con
 For this and for other purposes, we might be helped by having some reshaping layers. 
 Here are a few in tensorflow.
 
-For flattening, which is convering an image into a vector, used for instance, before feeding into the first 
+For flattening, which is converting an image into a vector, used for instance, before feeding into the first 
 fully-connected layers:
 
 .. code-block:: python
@@ -15,7 +15,7 @@ fully-connected layers:
     output = tf.reshape(input, [-1, in_shp[1]*in_shp[2]*in_shp[3]])
 
 The reshape command is quite simlar to theano. The nice thing here is the ``-1`` option, which implies that 
-any dimension that have ``-1`` immediately accomodates the rest. This means that we don't have to care about 
+any dimension that have ``-1`` immediately accommodates the rest. This means that we don't have to care about 
 knowing the value of that dimension and could assign it during runtime. 
 I use this for the mini batch size being unknown. One network can now run in batch, stochastic or online 
 gradient descent and during test time, I can supply how many ever samples I want. 

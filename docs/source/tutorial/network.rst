@@ -15,7 +15,7 @@ This is followed by two fully-connected layers of :math:`800` neurons each.
 The last softmax layer will have :math:`10` nodes, one for each class. 
 In between, we add some dropout layers and normalization layers, just to make things a little better.
 
-Let us also fix this by using gloabl definitions (refer to them all in ``lenet.gloabl_definitions`` module).
+Let us also fix this by using global definitions (refer to them all in ``lenet.gloabl_definitions`` module).
 
 .. code-block:: python
 
@@ -84,7 +84,7 @@ take this image placeholder.
         """
         self.images = images
 
-As can be seen in the documentation of :class:`lenet.network.lenet5`, I have a habit of assiging some variables with ``self`` so that 
+As can be seen in the documentation of :class:`lenet.network.lenet5`, I have a habit of assigning some variables with ``self`` so that 
 I can have access to them via the objects. 
 This will be made clear when we study further :class:`lenet.trainer.trainer` module and others.
 For now, let us proceed with the rest of the network architecure.
@@ -142,7 +142,7 @@ can be used at a later time to apply gradients to the ``trainable_params`` colle
 regularization to ``regularizer_worthy_params``. I typically do not regularize biases. 
 
 If this method was not called after a layer was added, you can think of it as being used for frozen or 
-obstinate layers as is typically used in metoring networks purposes :cite:`venkatesan2016diving`.
+obstinate layers as is typically used in mentoring networks purposes :cite:`venkatesan2016diving`.
 We now move on to the fully-connected layers. Before adding them, we need to *flatten* the outputs we 
 have so far. We can use the :meth:`lenet.layers.flatten_layer` to reshape the outputs.
 
@@ -150,7 +150,7 @@ have so far. We can use the :meth:`lenet.layers.flatten_layer` to reshape the ou
 
     flattened = flatten_layer(lrn2_out)
 
-In case we are implmenting a dropout layer, we need a dropout probability placeholder that we can 
+In case we are implementing a dropout layer, we need a dropout probability placeholder that we can 
 feed in during train and test time. 
 
 .. code-block:: python
@@ -211,7 +211,7 @@ Before we begin training though, the network needs several things added to it. T
 is a set of cost and objectives. Firstly we begin with adding a ``self.labels`` property to the network class.
 This placeholder comes from the :class:`lenet.dataset.mnist` class. 
 
-For a loss we can start with a cateogrical cross entropy loss. 
+For a loss we can start with a categorical cross entropy loss. 
 
 .. code-block:: python 
 
@@ -220,7 +220,7 @@ For a loss we can start with a cateogrical cross entropy loss.
     tf.add_to_collection( 'objectives', self.cost ) 
     tf.summary.scalar( 'cost', self.cost ) 
 
-The mthod :meth:`tf.nn.softmax_cross_entropy_with_logits` is another unique feature of tensorflow.
+The method :meth:`tf.nn.softmax_cross_entropy_with_logits` is another unique feature of tensorflow.
 This method will take in ``logits`` which are the outputs of the identity dot-product layer 
 before the softmax, apply softmax to it and estimate its cross-entropy loss with a one-hot vector
 version of labels provided to the ``labels`` argument, all doing so efficiently.
@@ -254,7 +254,7 @@ where, the :meth:`lenet.network.apply_regularizer` adds :math:`L1` and :math:`L2
         tf.summary.scalar('l2_' + param.name, norm)                  
         tf.add_to_collection('objectives', norm)
 
-Most of the methods used above are reminicent of theano except for :meth:`tf.nn.l2_loss`, which 
+Most of the methods used above are reminiscent of theano except for :meth:`tf.nn.l2_loss`, which 
 should also be obvious to understand.
 
 The Overall objective of the network is, 

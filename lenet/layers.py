@@ -30,7 +30,7 @@ def dot_product_layer(input, params = None, neurons = 1200, name = 'fc', activat
         activation: What kind of activation to use.
 
     Returns:
-        tuple: The output node and A list of parameters that are learnanble
+        tuple: The output node and A list of parameters that are learnable
     """
     with tf.variable_scope(name) as scope:
         if params is None:
@@ -77,7 +77,7 @@ def conv_2d_layer (input,
         padding: Padding to be used in convolution. "VALID" is default.
 
     Returns:
-        tuple: The output node and A list of parameters that are learnanble
+        tuple: The output node and A list of parameters that are learnable
     """        
     f_shp = [filter_size[0], filter_size[1], input.shape[3].value, neurons]
     with tf.variable_scope(name) as scope:
@@ -187,7 +187,7 @@ def dropout_layer (input, prob, name ='dropout'):
 
     Args:
         input: a 2D node.
-        chanels: How many channels are there in the image. (Default = ``1``)
+        prob: Probability feeder.
         name: name scope of the layer.  
 
     Returns:

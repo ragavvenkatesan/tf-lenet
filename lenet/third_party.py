@@ -5,7 +5,7 @@ import tensorflow as tf
 from math import sqrt
 
 def put_kernels_on_grid (kernel, pad = 1, name = 'visualizer'):
-    """Visualize conv. filters as an image (mostly for the 1st layer).
+    """Visualize convolutional filters as an image (mostly for the 1st layer).
     Arranges filters into a grid, with some paddings between adjacent filters.
 
     Args:

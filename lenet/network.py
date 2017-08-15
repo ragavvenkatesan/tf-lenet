@@ -22,7 +22,7 @@ def apply_gradient_descent(var_list, obj):
 
 def apply_adam (var_list, obj, learning_rate = 1e-4):
     """
-    Sets up the ADAM optmiizer
+    Sets up the ADAM optimizer
 
     Args:
         var_list: List of variables to optimizer over.
@@ -60,7 +60,7 @@ def apply_rmsprop( var_list, obj ):
 
 def apply_weight_decay (var_list, name = 'weight_decay'):
     """
-    This method applys L2 Regularization to all weights and adds it to the ``objectives`` 
+    This method applies L2 Regularization to all weights and adds it to the ``objectives`` 
     collection. 
     
     Args:
@@ -77,7 +77,7 @@ def apply_weight_decay (var_list, name = 'weight_decay'):
 
 def apply_l1 ( var_list, name = 'l1'):
     """
-    This method applys L1 Regularization to all weights and adds it to the ``objectives`` 
+    This method applies L1 Regularization to all weights and adds it to the ``objectives`` 
     collection. 
     
     Args:
@@ -107,7 +107,7 @@ def process_params(params):
 
 def apply_regularizer ( var_list):
     """
-    This method applys Regularization to all weights and adds it to the ``objectives`` 
+    This method applyies Regularization to all weights and adds it to the ``objectives`` 
     collection. 
     
     Args:
@@ -130,7 +130,7 @@ class lenet5(object):
     Definition of the lenet class of networks.
 
     Notes:
-        *   Produces the lenet model and returns the weigts. A typical lenet has 
+        *   Produces the lenet model and returns the weights. A typical lenet has 
             two convolutional layers with filters sizes ``5X5`` and ``3X3``. These
             are followed by two fully-connected layers and a softmax layer. This 
             network model, reproduces this network to be trained on MNIST images

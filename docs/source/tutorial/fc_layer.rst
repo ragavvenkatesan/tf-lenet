@@ -59,7 +59,7 @@ dot product operation. Consider the following piece of code:
         tf.summary.histogram('bias', bias)  
         tf.summary.histogram('activity', activity) 
 
-This codeblock is very simliar to how a dot product would be implemented in theano. For instance,
+This code block is very similar to how a dot product would be implemented in theano. For instance,
 in `yann <http://www.yann.network>`_ I implemented a dot product layer like so:
 
 .. code-block:: python
@@ -73,12 +73,12 @@ in `yann <http://www.yann.network>`_ I implemented a dot product layer like so:
     activity = theano.nnet.relu(dot)
 
 We can already see that the :meth:`theano.shared` equivalent in tensorflow is the :meth:`tf.Variable`. They 
-work in simliar fashion as well. :meth:`tf.Variable` is a node in a computational graph, just like :meth:`theano.shared`
+work in similar fashion as well. :meth:`tf.Variable` is a node in a computational graph, just like :meth:`theano.shared`
 variable. Operationally, the rest is easy to infer from the code itself. 
 
 There are some newer elements in the tensorflow code. Tensorflow graph components (variables and ops)
 could be enclosed using :meth:`tf.variable_scope` declarations. I like to think of them as *boxes* to put things in 
-literally. Once we go through tensorboard, it can be noticed that sometimes they literatlly are boxes. 
+literally. Once we go through tensorboard, it can be noticed that sometimes they literally are boxes. 
 For instance, the following is a tensorboard visualization of this scope. 
 
 .. figure:: figures/dot_product_tensorboard.png

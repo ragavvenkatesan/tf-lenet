@@ -19,7 +19,7 @@ and was later re-introduced and widely preferred in modern day object categoriza
 They employ a *relatively* large receptive field at the earlier layers and continue growing with the
 rate of growth reducing by a magnitude. 
 Consider AlexNet :cite:`krizhevsky2012imagenet`.
-This network won the ImageNet VOC challege :cite:`deng2009imagenet` in 2012 which involves 
+This network won the ImageNet VOC challenge :cite:`deng2009imagenet` in 2012 which involves 
 recognizing objects belonging to 1000 categories with each image being :math:`224 \times 224` in size.
 This network has a first layer with :math:`11 \times 11` convolutional filters (which are strided by :math:`4` pixels),
 followed by a :math:`3 \times 3` pooling (strided by :math:`2`). 

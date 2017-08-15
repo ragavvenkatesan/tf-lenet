@@ -65,12 +65,12 @@ The feature map is a spatial map of confidence values for the existence of the p
 Implementation
 --------------
 
-Simliar to the dot-product layer, the conv layer implementation is also very simliar to a theano structure.
+Similar to the dot-product layer, the conv layer implementation is also very similar to a theano structure.
 It can be implemented as follows:
 
 .. code-block:: python
 
-    # Create graph variables using the same xavier initializations
+    # Create graph variables using the same xavier initialization
     weights = tf.Variable(initializer(  f_shp, 
                                         name = 'xavier_weights'),\
                                         name = 'weights')
@@ -95,7 +95,7 @@ It can be implemented as follows:
 
 While most of the code is easily understandable and migrated analogously from theano, the visualization needs 
 to be adapted for tensorboard. The :meth:`lenet.support.visualize_filters` method is a wrapper to a nice function 
-written by `kukurza <https://github.com/kukuruza>`_ . The code rasterizes the filters similar to what we 
+written by `kukurza <https://github.com/kukuruza>`_ . The code rastarizes the filters similar to what we 
 are used to from pylearn2. The original code is hosted on their `gist <https://gist.github.com/kukuruza/03731dc494603ceab0c5>`_ .
 My modified version is in :meth:`lenet.third_party.put_kernels_on_grid`.
 
