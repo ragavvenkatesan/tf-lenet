@@ -4,6 +4,126 @@ from layers import *
 from support import visualize_images
 from global_definitions import *
 
+def apply_gradient_descent(var_list, obj):
+    """
+    Sets up the gradient descent optimizer
+
+    Args:
+        var_list: List of variables to optimizer over.        
+        obj: Node of the objective to minimize
+    Notes:
+        learning_rate: What learning rate to run with. (Default = ``0.01``) Set with ``LR``
+    """
+    back_prop = tf.train.GradientDescentOptimizer(
+                                            learning_rate = LR,
+                                            name = 'gradient_descent' ).minimize(loss = obj, \
+                                                    var_list = var_list ) 
+    return back_prop
+
+def apply_adam (var_list, obj, learning_rate = 1e-4):
+    """
+    Sets up the ADAM optmiizer
+
+    Args:
+        var_list: List of variables to optimizer over.
+        obj: Node of the objective to minimize        
+    
+    Notes:
+        learning_rate: What learning rate to run with. (Default = ``0.01``) Set with ``LR``
+    """      
+    back_prop = tf.train.AdamOptimizer(
+                                        learning_rate = LR,
+                                        name = 'adam' ).minimize(loss = obj, \
+                                            var_list = var_list) 
+    return back_prop                                                               
+
+def apply_rmsprop( var_list, obj ):
+    """
+    Sets up the RMS Prop optimizer
+
+    Args:
+        var_list: List of variables to optimizer over.
+        obj: Node of the objective to minimize        
+
+    Notes:
+        * learning_rate: What learning rate to run with. (Default = ``0.001``). Set  ``LR``
+        * momentum: What is the weight for momentum to run with. (Default = ``0.7``). Set ``MOMENTUM``
+        * decay: What rate should learning rate decay. (Default = ``0.95``). Set ``DECAY``            
+    """    
+    back_prop = tf.train.RMSPropOptimizer(
+                                        learning_rate = LR,
+                                        decay = DECAY,
+                                        momentum = MOMENTUM,
+                                        name = 'rmsprop' ).minimize(loss = obj, \
+                                        var_list = var_list) 
+    return back_prop
+
+def apply_weight_decay (var_list, name = 'weight_decay'):
+    """
+    This method applys L2 Regularization to all weights and adds it to the ``objectives`` 
+    collection. 
+    
+    Args:
+        name: For the tensorflow scope.
+        var_list: List of variables to apply.
+    
+    Notes:
+        What is the co-efficient of the L2 weight? Set ``WEIGHT_DECAY_COEFF``.( Default = 0.0001 )
+    """                              
+    for param in var_list:
+        norm = WEIGHT_DECAY_COEFF * tf.nn.l2_loss(param)
+        tf.summary.scalar('l2_' + param.name, norm)                  
+        tf.add_to_collection('objectives', norm)
+
+def apply_l1 ( var_list, name = 'l1'):
+    """
+    This method applys L1 Regularization to all weights and adds it to the ``objectives`` 
+    collection. 
+    
+    Args:
+        var_list: List of variables to apply l1
+        name: For the tensorflow scope.
+    
+    Notes:
+        What is the co-efficient of the L1 weight? Set ``L1_COEFF``.( Default = 0.0001 )
+    """                              
+    for param in var_list:
+        norm = L1_COEFF * tf.reduce_sum(tf.abs(param, name = 'abs'), name = 'l1')
+        tf.summary.scalar('l1_' + param.name, norm)                  
+        tf.add_to_collection( 'objectives', norm)
+
+def process_params(params):
+    """
+    This method adds the params to two collections.
+    The first element is added to ``regularizer_worthy_params``.
+    The first and second elements are is added to ``trainable_parmas``.
+
+    Args:
+        params: List of two.
+    """
+    tf.add_to_collection( 'trainable_params', params[0])
+    tf.add_to_collection( 'trainable_params', params[1])         
+    tf.add_to_collection('regularizer_worthy_params', params[0]) 
+
+def apply_regularizer ( var_list):
+    """
+    This method applys Regularization to all weights and adds it to the ``objectives`` 
+    collection. 
+    
+    Args:
+        var_list: List of variables to apply l1
+    
+    Notes:
+        What is the co-efficient of the L1 weight? Set ``L1_COEFF``.( Default = 0.0001 )
+    """       
+    with tf.variable_scope( 'weight-decay') as scope:
+        if WEIGHT_DECAY_COEFF > 0:
+            apply_weight_decay(name = 'weight_decay', var_list = var_list )
+
+    with tf.variable_scope( 'l1-regularization') as scope:
+        if L1_COEFF > 0:
+            apply_l1(name = 'weight_decay',  var_list = var_list)
+
 
 class lenet5(object):
     """
@@ -42,7 +162,6 @@ class lenet5(object):
         Class constructor. Creates the model and allthe connections. 
         """
         self.images = images
-
         # Unflatten Layer
         images_square = unflatten_layer ( self.images )
         visualize_images(images_square)
@@ -53,7 +172,7 @@ class lenet5(object):
                                                 filter_size = F1,
                                                 name = 'conv_1',
                                                 visualize = True )
-        self._process_params(params)
+        process_params(params)
         pool1_out = max_pool_2d_layer ( input = conv1_out, name = 'pool_1')
         lrn1_out = local_response_normalization_layer (pool1_out, name = 'lrn_1' )
 
@@ -62,7 +181,7 @@ class lenet5(object):
                                                 neurons = C2,
                                                 filter_size = F2,
                                                 name = 'conv_2' )
-        self._process_params(params)
+        process_params(params)
         
         pool2_out = max_pool_2d_layer ( input = conv2_out, name = 'pool_2')
         lrn2_out = local_response_normalization_layer (pool2_out, name = 'lrn_2' )
@@ -82,7 +201,7 @@ class lenet5(object):
         fc1_out, params = dot_product_layer  (  input = flattened_dropout,
                                                 neurons = D1,
                                                 name = 'dot_1')
-        self._process_params(params)
+        process_params(params)
 
         # Dropout Layer 2 
         fc1_out_dropout = dropout_layer ( input = fc1_out,
@@ -92,7 +211,7 @@ class lenet5(object):
         fc2_out, params = dot_product_layer  (  input = fc1_out_dropout, 
                                                 neurons = D2,
                                                 name = 'dot_2')
-        self._process_params(params)
+        process_params(params)
 
         # Dropout Layer 3 
         fc2_out_dropout = dropout_layer ( input = fc2_out,
@@ -104,122 +223,18 @@ class lenet5(object):
                                                     neurons = C,
                                                     activation = 'identity',
                                                     name = 'logits_layer')
-        self._process_params(params)
+        process_params(params)
 
         # Softmax layer
         self.inference, self.predictions = softmax_layer (  input = self.logits,
                                                             name = 'softmax_layer' )                                                    
-
-
-    def _process_params(self, params):
-        """
-        This method adds the params to two collections.
-        The first element is added to ``regularizer_worthy_params``.
-        The first and second elements are is added to ``trainable_parmas``.
-
-        Args:
-            params: List of two.
-        """
-        tf.add_to_collection('trainable_params', params[0])
-        tf.add_to_collection('trainable_params', params[1])         
-        tf.add_to_collection('regularizer_worthy_params', params[0]) 
-
-    def apply_gradient_descent(self, var_list = None):
-        """
-        Sets up the gradient descent optimizer
-
-        Args:
-            var_list: List of variables to optimizer over.        
-        
-        Notes:
-            learning_rate: What learning rate to run with. (Default = ``0.01``) Set with ``LR``
-        """
-        if var_list is None:
-            var_list = [param for param in tf.get_collection('trainable_params')]
-        self.back_prop = tf.train.GradientDescentOptimizer(
-                                                learning_rate = LR,
-                                                name = 'gradient_descent' ).minimize(loss = self.obj, \
-                                                        var_list = var_list ) 
-
-    def apply_adam (self, var_list = None, learning_rate = 1e-4):
-        """
-        Sets up the ADAM optmiizer
-
-        Args:
-            var_list: List of variables to optimizer over.
-        
-        Notes:
-            learning_rate: What learning rate to run with. (Default = ``0.01``) Set with ``LR``
-        """
-        if var_list is None:
-            var_list = [param for param in tf.get_collection('trainable_params')]        
-        self.back_prop = tf.train.AdamOptimizer(
-                                            learning_rate = LR,
-                                            name = 'adam' ).minimize(loss = self.obj, \
-                                                var_list = var_list)                                                                
-
-    def apply_rmsprop(  self, 
-                        var_list = None ):
-        """
-        Sets up the RMS Prop optimizer
-
-        Args:
-            var_list: List of variables to optimizer over.
-
-        Notes:
-            * learning_rate: What learning rate to run with. (Default = ``0.001``). Set  ``LR``
-            * momentum: What is the weight for momentum to run with. (Default = ``0.7``). Set ``MOMENTUM``
-            * decay: What rate should learning rate decay. (Default = ``0.95``). Set ``DECAY``            
-        """
-        if var_list is None:
-            var_list = [param for param in tf.get_collection('trainable_params')]        
-        self.back_prop = tf.train.RMSPropOptimizer(
-                                            learning_rate = LR,
-                                            decay = DECAY,
-                                            momentum = MOMENTUM,
-                                            name = 'rmsprop' ).minimize(loss = self.obj, \
-                                            var_list = var_list)    
-
-    def apply_weight_decay (self, name = 'weight_decay'):
-        """
-        This method applys L2 Regularization to all weights and adds it to the ``objectives`` 
-        collection. 
-        
-        Args:
-            name: For the tensorflow scope.
-        
-        Notes:
-            What is the co-efficient of the L2 weight? Set ``WEIGHT_DECAY_COEFF``.( Default = 0.0001 )
-        """                              
-        for param in tf.get_collection('regularizer_worthy_params'):
-            norm = WEIGHT_DECAY_COEFF * tf.nn.l2_loss(param)
-            tf.summary.scalar('l2_' + param.name, norm)                  
-            tf.add_to_collection('objectives', norm)
-
-    def apply_l1 (self, name = 'l1'):
-        """
-        This method applys L1 Regularization to all weights and adds it to the ``objectives`` 
-        collection. 
-        
-        Args:
-            name: For the tensorflow scope.
-        
-        Notes:
-            What is the co-efficient of the L1 weight? Set ``L1_COEFF``.( Default = 0.0001 )
-        """                              
-        for param in tf.get_collection('regularizer_worthy_params'):
-            norm = L1_COEFF * tf.reduce_sum(tf.abs(param, name = 'abs'), name = 'l1')
-            tf.summary.scalar('l1_' + param.name, norm)                  
-            tf.add_to_collection('objectives', norm)
-
                 
-    def cook(self, labels, name ='train'):
+    def cook(self, labels):
         """
         Prepares the network for training
 
         Args:
             labels: placeholder for labels
-            name: Training block name scope 
 
         Notes:
             *   Each optimizer has a lot parameters that, if you want to change, modify in the code
@@ -240,24 +255,23 @@ class lenet5(object):
                 tf.add_to_collection('objectives', loss ) 
                 tf.summary.scalar('cost', loss)  
 
-            with tf.variable_scope('weight-decay') as scope:
-                if WEIGHT_DECAY_COEFF > 0:
-                    self.apply_weight_decay()
-
-            with tf.variable_scope('l1-regularization') as scope:
-                if L1_COEFF > 0:
-                    self.apply_l1()
-
+            apply_regularizer (var_list = tf.get_collection( 'regularizer_worthy_params') )
             self.obj = tf.add_n(tf.get_collection('objectives'), name='objective')
     
         with tf.variable_scope('train') as scope:
             # Change (supply as arguments) parameters here directly in the code.
             if OPTIMIZER == 'sgd':                                                                              
-                self.apply_gradient_descent()
+                self.back_prop = apply_gradient_descent(var_list = tf.get_collection( \
+                                                            'trainable_params'),
+                                                            obj = self.obj )
             elif OPTIMIZER == 'rmsprop':
-                self.apply_rmsprop()
+                self.back_prop = apply_rmsprop(var_list = tf.get_collection( \
+                                                            'trainable_params') ,
+                                                            obj = self.obj)
             elif OPTIMIZER == 'adam':
-                self.apply_adam ()
+                self.back_prop = apply_adam (var_list = tf.get_collection( \
+                                                            'trainable_params') ,
+                                                            obj = self.obj )
             else:
                 raise Error('Invalid entry to optimizer')
                 

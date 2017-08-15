@@ -18,25 +18,34 @@ def softmax_layer (input, name = 'softmax'):
         predictions = tf.argmax(inference, 1, name = 'predictions')
     return (inference, predictions)
 
-def dot_product_layer(input, neurons = 1200, name = 'fc', activation = 'relu'):
+def dot_product_layer(input, params = None, neurons = 1200, name = 'fc', activation = 'relu'):
     """
     Creates a fully connected layer
 
     Args:
         input: Where is the input of the layer coming from
         neurons: Number of neurons in the layer.
+        params: List of tensors, if supplied will use those params.
         name: name scope of the layer
+        activation: What kind of activation to use.
 
     Returns:
         tuple: The output node and A list of parameters that are learnanble
     """
     with tf.variable_scope(name) as scope:
-        weights = tf.Variable(initializer([input.shape[1].value,neurons], name = 'xavier_weights'),\
+        if params is None:
+            weights = tf.Variable(initializer([input.shape[1].value,neurons], name = 'xavier_weights'),\
                                             name = 'weights')
-        bias = tf.Variable(initializer([neurons], name = 'xavier_bias'), name = 'bias')
+            bias = tf.Variable(initializer([neurons], name = 'xavier_bias'), name = 'bias')
+        else:
+            weights = params[0]
+            bias = params[1]
+
         dot = tf.nn.bias_add(tf.matmul(input, weights, name = 'dot'), bias, name = 'pre-activation')
         if activation == 'relu':
             activity = tf.nn.relu(dot, name = 'activity' )
+        elif activation == 'sigmoid':
+            activity = tf.nn.sigmoid(dot, name = 'activity' )            
         elif activation == 'identity':
             activity = dot                     
         params = [weights, bias]
@@ -51,6 +60,7 @@ def conv_2d_layer (input,
                 stride = (1,1,1,1), 
                 padding = 'VALID',
                 name = 'conv', 
+                activation = 'relu',
                 visualize = False):
     """
     Creates a convolution layer
@@ -81,7 +91,12 @@ def conv_2d_layer (input,
                                 padding = padding,
                                 name = scope.name  )
         c_out_bias = tf.nn.bias_add(c_out, bias, name = 'pre-activation')
-        activity = tf.nn.relu(c_out_bias, name = 'activity')
+        if activation == 'relu':
+            activity = tf.nn.relu(c_out_bias, name = 'activity' )
+        elif activation == 'sigmoid':
+            activity = tf.nn.sigmoid(c_out_bias, name = 'activity' )            
+        elif activation == 'identity':
+            activity = c_out_bias
         params = [weights, bias]
         tf.summary.histogram('weights', weights)
         tf.summary.histogram('bias', bias)  
@@ -181,3 +196,6 @@ def dropout_layer (input, prob, name ='dropout'):
     with tf.variable_scope (name) as scope:
         output = tf.nn.dropout (input, prob)
     return output
+
+if __name__ == '__main__':
+    pass  
