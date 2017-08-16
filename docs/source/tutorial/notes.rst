@@ -48,9 +48,9 @@ Off-the-shelf Downloadable networks
 Given this observation among most popular CNNs, modern day computer vision engineers prefer to 
 simply *download* off-the-shelf neural networks and fine-tune it for their task.
 This process involves the following steps. 
-Consider that a stable network :math:`N` is well-trained on some task :math:`T:math:` that has a large dataset 
+Consider that a stable network :math:`N` is well-trained on some task :math:`T` that has a large dataset 
 and compute available at site.
-Consider that the target for an engineer is build a network :math:`n:math:` that can make inferences on task :math:`t`. 
+Consider that the target for an engineer is build a network :math:`n` that can make inferences on task :math:`t`. 
 Also assume that these two tasks are somehow related, perhaps :math:`T` was visual object 
 categorization on ImageNet and :math:`t` on the COCO dataset :cite:`lin2014microsoft` or the Caltech-101/256
 datasets :cite:`fei2006one`.
