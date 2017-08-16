@@ -97,7 +97,7 @@ The accuracy graph in the scalars tab under the test column will look like the f
 This implies that the network trained fully and has achieved about 99% accuracy and everything is normal.
 From the next section onwards, I will go in detail, how I built this network. 
 
-If you are interested please check out my `Yann Toolbox <http:://yann.network>`_ written in theano completely.
+If you are interested please check out my `Yann Toolbox <http://yann.network>`_ written in theano completely.
 Have fun! 
 
 .. toctree::
