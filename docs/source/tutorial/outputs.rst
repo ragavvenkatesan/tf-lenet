@@ -25,7 +25,7 @@ Create the network object and cook it.
 
 Create a trainer module that takes as input, the cooked network and the datafeed and then train it.
 
-..code-block:: python
+.. code-block:: python
 
     bp = trainer (net, dataset.feed)
     bp.train()
