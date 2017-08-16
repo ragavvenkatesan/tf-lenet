@@ -41,6 +41,7 @@ Dataset
 
 Tensorflow examples provides the MNIST dataset in a nice feeder-worthy form, which as a theano user,
 I find very helpful. 
+The example itself is at :meth:`tf.examples.tutorials.mnist.input_data` for those who want to check it out.
 You can quite simply import this feeder as follows:
 
 .. code-block:: python
