@@ -323,4 +323,3 @@ This implies that we will be able to monitor it as an image visualization.
 
 This concludes the network part of the computational graph. The cook method is described in 
 :meth:`lenet.network.lenet5.cook` and the entire class in :class:`lenet.network.lenet5`.
-The documentation for all the support material can be found in the :ref:`network` file.

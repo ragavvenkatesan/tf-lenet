@@ -7,9 +7,18 @@ A Gentle Intro to TensorFlow for Theano Users
 =============================================
  
 Welcome to the Lenet tutorial using TensorFlow. 
-From being a long time user of `Theano <https://github.com/Theano/Theano>`_, I am now migrating to `TensorFlow <https://www.tensorflow.org/>`_. 
-This repository containing an implementation Lenet, the hello world of deep CNNs is my first exploratory experimentation with TensorFlow.
+From being a long time user of `Theano <https://github.com/Theano/Theano>`_, migrating to `TensorFlow <https://www.tensorflow.org/>`_ is not that easy.
+Recently, tensorflow is showing strong performance leading to many defecting from theano to tensorflow.
+I am one such defector.
+This repository contains an implementation Lenet, the hello world of deep CNNs  and is my first exploratory experimentation with TensorFlow.
 It is a typical Lenet-5 network trained to classify MNIST dataset. 
+This is a simple implementation similar to that, which can be found in the tutorial that comes with TensorFlow and most other public service tutorials.
+This is however modularized, so that it is easy to understand and reuse.
+This documentation website that comes along with this repository might help users migrating from theano to tensorflow, just as I did while 
+implementing this repository. 
+In this regard, whenever possible, I make explicit comparisons to help along. 
+Tensorflow has many ``contrib`` packages that are a level of abstraction higher than theano. 
+I have avoided using those whenever possible and stuck with the fundamental tensorflow modules for this tutorial.
 
 .. image:: https://requires.io/github/ragavvenkatesan/tf-lenet/requirements.svg?branch=master
     :target: https://requires.io/github/ragavvenkatesan/tf-lenet/requirements/?branch=master
@@ -30,17 +39,10 @@ It is a typical Lenet-5 network trained to classify MNIST dataset.
 .. image:: https://badges.frapsoft.com/os/v1/open-source.svg?v=103
     :alt: Support Open Source
 
-This is a simple implementation similar to that, which can be found in the tutorial that comes with TensorFlow and most other public service tutorials.
-This is however modularized so that it could be re-purposed for other networks later.
-This documentation website that comes along with this repository might help users migrating from theano to tensorflow, just as I did while 
-implementing this repository. In this regard, whenever possible, I make explicit comparisons to help along. 
-Tensorflow has many ``contrib`` packages that are a level of abstraction higher than theano. 
-I have avoided using those whenever possible and stuck with the core tensorflow for this tutorial.
-
 While this is most useful for theano to tensorflow migrants, this will also be useful for those who are new to CNNs.
-There are small notes and materials explaining the theory and math behind the working of CNNs.
+There are small notes and materials explaining the theory and math behind the working of CNNs and layers.
 While these are in no way comprehensive, these might help those that are unfamiliar with
-CNNs and want to simply learn tensorflow and would rather not spend time on a semester long course.
+CNNs but want to simply learn tensorflow and would rather not spend time on a semester long course.
 
 .. note:: 
 
@@ -76,7 +78,7 @@ or type in the contents of that file, line-by-line in a python shell:
     dataset = mnist()   
     net = lenet5(images = dataset.images)  
     net.cook(labels = dataset.labels)
-    bp = trainer (expert, dataset.feed)
+    bp = trainer (net, dataset.feed)
     bp.train()
 
 Once the code is running, setup tensorboard to observe results and outputs. 
@@ -95,6 +97,8 @@ The accuracy graph in the scalars tab under the test column will look like the f
 This implies that the network trained fully and has achieved about 99% accuracy and everything is normal.
 From the next section onwards, I will go in detail, how I built this network. 
 
+If you are interested please check out my `Yann Toolbox <http:://yann.network>`_ written in theano completely.
+Have fun! 
 
 .. toctree::
    :maxdepth: 3

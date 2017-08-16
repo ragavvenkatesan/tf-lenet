@@ -108,7 +108,7 @@ This method will run the training loops for the network that we have definied, t
 
 The trainer loop can be coded as:
 
-..code-block:: python
+.. code-block:: python
 
     # Iterate over iter
     for it in range(iter):            

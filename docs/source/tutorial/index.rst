@@ -30,4 +30,6 @@ Have fun!
    dropout_layer
    network
    trainer
+   outputs
+   notes
    zbibiliography

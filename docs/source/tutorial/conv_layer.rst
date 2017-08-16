@@ -1,5 +1,5 @@
 Convolutional Layers
-===================
+====================
 
 Fully-connected layers require a huge amount of memory to store all their weights.  
 They involve a lot of computation as well. 
