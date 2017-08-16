@@ -97,8 +97,8 @@ The idea of distillation works around the use of a temperature-raised softmax, d
     e^\frac{w^{c}N'(\mathbf{x})}{\Gamma} 
     \end{bmatrix}
 
-This temperature-raised softmax for :math:`\Gamma>1` (:math:`\Gamma=1` is simply the softmax 
-described in the equation) provides a softer target which is smoother across the labels. 
+This temperature-raised softmax for :math:`\Gamma>1` (:math:`\Gamma=1` is simply the original
+softmax) provides a softer target which is smoother across the labels. 
 It reduces the probability of the most probable label and provides rewards for the second and third 
 most probable labels also, by equalizing the distribution. 
 Using this *dark-knowledge* to create the errors :math:`e` (in addition to the error over 
