@@ -69,6 +69,19 @@ This now creates the following section of the graph:
 
    Dataset visualized in tensorboard. 
 
+Fashion-MNIST
++++++++++++++
+
+`Fashion-MNIST <https://github.com/zalandoresearch/fashion-mnist/blob/master/doc/arxiv.pdf>`_ is a new 
+dataset that appears to take the place of MNIST as a good CV baseline dataset. 
+It has the same characteristics as MNIST itself and could be a good drop-in dataset in this tutorial.
+If you prefer using this dataset instead of the classic MNIST, simply download the dataset from 
+`here <https://github.com/zalandoresearch/fashion-mnist#get-the-data>`_ into the ``data/fashion``
+directory and use the :meth:`lenet.dataset.fashion_mnist` instead of the old :meth:`lenet.dataset.mnist`
+method. 
+This uses the data in the new directory. 
+
+
 Network Architecture
 ---------------------
 

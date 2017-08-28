@@ -9,7 +9,7 @@
 * Are you here to learn what CNNs are and how to implement them in TensorFlow?
 
 Then you're in luck! I myself am just migrating from theano to tensorflow and this is my first implementation in 
-TensorFlow. This is a typical Lenet-5 network trained to classify MNIST dataset. 
+TensorFlow. This is a typical Lenet-5 network trained to classify MNIST-like dataset.
 This is a simple code that is found in the tutorial that comes with TensorFlow.
 I made it a little modularized so that it could be re-purposed for other networks later.
 The [documentation](http://tf-lenet.readthedocs.io) website that comes along with this repository helps users migrating from theano to tensorflow.
