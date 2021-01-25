@@ -1,5 +1,5 @@
 import tensorflow as tf
-from global_definitions import DROPOUT_PROBABILITY
+from .global_definitions import DROPOUT_PROBABILITY
 
 class trainer(object):
     """
