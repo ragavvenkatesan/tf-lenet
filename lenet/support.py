@@ -1,6 +1,6 @@
 import tensorflow as tf
 from math import sqrt
-from third_party import put_kernels_on_grid
+from .third_party import put_kernels_on_grid
 
 def initializer(shape, name = 'xavier'):
     """

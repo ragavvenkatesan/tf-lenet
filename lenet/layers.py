@@ -1,5 +1,5 @@
 import tensorflow as tf
-from support import initializer, visualize_filters
+from .support import initializer, visualize_filters
 import numpy as np
 
 def softmax_layer (input, name = 'softmax'):

@@ -1,8 +1,8 @@
 import tensorflow as tf
 import numpy as np
-from layers import *
-from support import visualize_images
-from global_definitions import *
+from .layers import *
+from .support import visualize_images
+from .global_definitions import *
 
 def apply_gradient_descent(var_list, obj):
     """
